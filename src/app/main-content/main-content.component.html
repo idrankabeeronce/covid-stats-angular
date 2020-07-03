@@ -1,0 +1,67 @@
+<mat-drawer-container class="main">
+    <div class="main-content-stat">
+        <div id="main-content-scrollbar">
+        <mat-drawer-container class="main-content">
+            <div class="mat-drawer-header">
+                <div class="search-bar">
+                    <div class="search-bar-border">
+                        <mat-form-field class="example-full-width" >
+                            <mat-label>Поиск</mat-label>
+                            <input matInput [(ngModel)]="selectedCountry" (ngModelChange)="update()" color="basic">
+                            <button mat-button *ngIf="selectedCountry" matSuffix mat-icon-button aria-label="Clear" (click)="[selectedCountry='', update()]">
+                                <mat-icon>close</mat-icon>
+                            </button>                 
+                        </mat-form-field>
+                    </div>    
+                </div>
+                <mat-button-toggle-group class="dashboard_buttons" value="world">
+                    <mat-button-toggle value="world" id="but_ch" (click)="switchtow()">Мир</mat-button-toggle >
+                    <mat-button-toggle value="russia" id="but_ch" (click)="switchtor()">РФ</mat-button-toggle>
+                </mat-button-toggle-group>
+                <div id="my-scrollbar">
+
+                        <table mat-table [dataSource]="items_w"  matSort (matSortChange)="sortData($event)" matSortDisableClear>
+                                <ng-container matColumnDef="num">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header="num">Место</th>
+                                    <td class="example-element-" mat-cell *matCellDef="let item"> {{item.num}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="country">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header="country" style="text-align: center">Страна, город</th>
+                                    <td class="example-element-" mat-cell *matCellDef="let item"> {{item.country}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="confirmed">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header="confirmed">Зараженных</th>
+                                    <td class="example-element-" mat-cell *matCellDef="let item"> {{item.confirmed}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="deaths">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header="deaths">Смертей</th>
+                                    <td class="example-element-" mat-cell *matCellDef="let item"> {{item.deaths}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="cured">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header="cured">Выздоровевших</th>
+                                    <td class="example-element-" mat-cell *matCellDef="let item"> {{item.cured}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="death_per">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header="death_per">Процент смертности</th>
+                                    <td class="example-element-" mat-cell *matCellDef="let item"> {{item.death_per}} </td>
+                                </ng-container>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns"
+                                    class="example-element-row"                            
+                                    [class.example-expanded-row]="chosenitem === row"
+                                    
+                                    [class.active]="row === chosenitem"
+                                    (click)="row === chosenitem ? [chosenitem=null, params.setParams(chosenitem)] : [chosenitem = row, params.setParams(chosenitem), scroll()]">
+                                </tr>
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+                        </table>
+
+                </div>
+            </div>
+            <hr class="hidden-hr-main" id="graphs">
+            <div class="graphs-content">
+                <app-out-graph [parentData]="params.getParams()"></app-out-graph>
+            </div>
+            </mat-drawer-container>    
+        </div>
+    </div>
+</mat-drawer-container>

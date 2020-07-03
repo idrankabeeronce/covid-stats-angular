@@ -1,0 +1,265 @@
+.main {
+    padding-top: 64px;
+    height: 100vh;
+}
+.nav {
+    position: fixed;
+    left: 0; 
+    width: 50px;
+    min-width: 24px;
+    z-index: 4;   
+}
+
+.nav-conainer {
+    justify-content: flex-end;
+    margin: auto 0;
+}
+.nav-cont {
+    padding: 10px 0 0 5px;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    display: block;
+    width: 100%;
+    height: 22vh;
+    background-color: white;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size: 1.7vh;
+    letter-spacing:-0.5vh;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 2px 4px 2px -2px rgba(0, 0, 0, 0.2),2px 2px 2px 2px rgba(0, 0, 0, 0.14),2px 2px 6px 2px rgba(0, 0, 0, 0.12);
+    transition: 0.2s background-color;
+}
+#target {
+    background-color: #3f51b5;
+    color: white;
+    
+}
+.hidden-hr {
+        border: none;
+        margin: 0;
+        padding: 0;
+}
+.header {
+    position: relative;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1350px;
+    height: 100%;
+    align-items: flex-end;
+}
+.main-h1 {
+    padding-bottom: 64px;
+    font-size: 8vw;
+    line-height: 8vw;
+    text-align: center;
+    color: #fff;    
+}
+@media screen and (min-width: 1500px) {
+    .nav {
+        width: 10%;
+    }
+    .nav .nav-cont {
+        padding: 10px 5px 0 5px;
+        writing-mode: horizontal-tb;
+        margin-top: 10%;
+        margin-bottom: 20%;
+        text-align: center;
+        height: 100%;
+        letter-spacing: 0;
+        font-size: 1.1vw;
+        cursor: pointer;
+    }
+    .main-h1 {
+        font-size: 84px;
+        line-height: 90px;
+    }
+}
+#my-home-scrollbar {
+    height: 100%;
+    overflow: auto;
+}
+.main-content {
+    height: 100%;
+    background-color: #d6dbfd;
+}
+.content { 
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1350px;
+    background-color: #fafafa;
+}
+.first-wallpaper {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background-image: url(src/assets/img/covid19.jpg);
+    background-size: cover;
+}
+.wallpaper-mask {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(359.68deg,rgba(78,56,117,.6) -.82%,rgba(79,57,118,0) 77.66%);
+}
+.concept-content {
+    margin: 0 30px;
+}
+.concept-header {
+    padding: 50px 0;
+}
+.content-h1 {
+    padding: 0 0 0 24px;
+    line-height: 52px;
+    font-size: 48px;
+}
+.content-h2 {
+    padding: 0 0 0 24px;
+}
+.content-p {
+    margin-right: 20%;
+    padding: 24px 0 24px 24px;
+    font-size: 18px;
+    line-height: 32px;
+}
+.concept-content {
+    text-align: left;
+}
+.concept-main-body {
+    display: flex;
+}
+.concept-main-body-text {
+    
+    width: 70%
+}
+.concept-main-body-img {
+    
+    width: 30%
+}
+.cov-img {
+    height: 100%;
+    background-image: url(src/assets/img/2019-nCoV.png);
+    background-size: cover;
+}
+.history-content {
+    margin: 0 30px;
+}
+.history-header {
+    padding: 50px 0;
+}
+.history-main-body {
+    display: flex;
+}
+.history-main-body-text {
+    width: 70%
+}
+.prevention-content {
+    margin: 0 30px;
+}
+.hr {
+    margin: 0 0 50px 0;
+}
+.prevention-header {
+    padding: 50px 0;
+}
+.cards {
+    position: relative;
+}
+.prevention-cards-content {
+    position: relative;
+}
+.cards-board  {
+    
+    padding-bottom: 30px;
+    position: relative;
+    display: grid;
+    max-width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    grid-template-rows: minmax(150px, 200px);
+    grid-auto-flow: dense;
+    grid-gap: 10px;
+}
+.prevention-card {
+    cursor: default;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    transition: 0.5s;
+    font-family: inherit;
+    font-size: 16px;
+}
+.popup-prevention {
+    position: absolute;
+    width: 30%;
+    background: white;
+    box-shadow: 2px 4px 2px -2px rgba(0, 0, 0, 0.2),2px 2px 2px 2px rgba(0, 0, 0, 0.24),2px 2px 6px 2px rgba(0, 0, 0, 0.32);
+    border-radius: 10px;
+    z-index: 3;
+    opacity: 0;
+    visibility: visible;
+    transition: 0.8s opacity, 0.8s visibility;
+}
+
+.popup-prevention-p {
+    padding: 32px;
+    
+    font-size: 18px;
+    line-height: 20px
+}
+
+@media screen and (min-width: 1600px) {
+    .popup-prevention-p {    
+        font-size: 24px;
+        line-height: 28px;
+    }
+}
+.hotline-conteiner {
+    padding-bottom: 100px;
+}
+.hotline-header {
+    padding: 50px 0;
+}
+.hotline-content {
+    padding-bottom: 20px;
+}
+.hotline-card-container {
+    display: flex;
+    justify-content: space-around;
+}
+.hotline-card {
+    height: 60px;
+    width: 40%;
+}
+.hotline-card-header {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.hotline-card-text {
+    font-size: 16px;
+    
+}
+.prevention-card:hover {
+    background-color: #3f51b5;
+}
+.prevention-card:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+.prevention-card:nth-child(2) {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+.prevention-card:nth-child(3) {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+.prevention-card:nth-child(5) {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+.prevention-card:nth-child(6) {
+    grid-column: span 3;
+    grid-row: span 1;
+}

@@ -1,0 +1,285 @@
+<mat-drawer-container class="main"> 
+    <mat-drawer-content class="main-content">
+        <div class="current-news" [style.visibility]="isCurrent ? 'visible' : 'hidden'" [style.opacity]="isCurrent ? '1' : '0'">
+            <div class="curerent-news-space">
+                <button mat-button id="backward">
+                    <i class="material-icons" id="backward-but">chevron_left</i>
+                </button>
+                <button mat-button id="forward">
+                    <i class="material-icons" id="forward-but">chevron_right</i>
+                </button>
+                <button mat-button id="exit">
+                    <i class="material-icons" (click)="isCurrent=false">close</i>
+                </button>
+                <mat-card class="current-news-card">
+                    <div id="c-scrollbar">
+                        <div class="content-current-card">
+                            <div class="current-tag">{{selectedNews.tag}}</div>
+                            <div class="current-title">
+                                <span>{{selectedNews.title}}</span>
+                            </div>
+                            <div class="current-date">
+                                <time datetime="YYYY-MM-DDThh:mm:ssTZD">{{selectedNews.date}}</time>
+                            </div>
+                            <div class="current-image">
+                                <picture class="current-picture">
+                                    <img src={{selectedNews.img}}>
+                                </picture>
+                            </div>
+                            <div class="current-text">
+                                <p>{{textNews}}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </mat-card>
+            </div>  
+            <div id="overlay" (click)="isCurrent=false"></div>       
+        </div>
+        
+        <div id="my-news-scrollbar">
+            
+            <div class="side-statistics-container">
+                <mat-card class="statistics-card">
+                    <div class="econonmy-panel">
+                        <div class="info-header">
+                            <span>Информация актуальна на {{calculateDiffDate(dataArray.PreviousDate)}}</span>
+                        </div>
+                        <div class="info-body">
+                            <div class="econonmy-vid">
+                                <div class="vid-header">
+                                    <span>Курс доллара США</span>
+                                </div>
+                                <div class="vid-body">
+                                    <span>$ {{arrayOfValute.USD}}</span>
+                                </div>
+                                
+                            </div>
+                            <div class="econonmy-vid">
+                                <div class="vid-header">
+                                    <span>Курс евро</span>
+                                </div>
+                                <div class="vid-body">
+                                    <span>€ {{arrayOfValute.EUR}}</span>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c19-statistics">
+                        <div class="c19-statistics-vid">
+                            <div class="vid-header">
+                                <div id="pointer" style="background-color: rgb(212, 37, 51);"></div>
+                                <span>Зараженные</span>
+                            </div>
+                            <div class="vid-body">
+                                <div class="world-stat">
+                                    <span>Мир: {{world_sum_confirmed}}</span>
+                                </div>
+                                <div class="russia-stat">
+                                    <span>Россия: {{russia_sum_confirmed}}</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="c19-statistics-vid">
+                            <div class="vid-header">
+                                <div id="pointer" style="background-color: rgb(41, 27, 28);"></div>
+                                <span>Умершие</span>
+                            </div>
+                            <div class="vid-body">
+                                <div class="world-stat">
+                                    <span>Мир: {{world_sum_deaths}} ({{world_per_deaths}}%)</span>
+                                </div>
+                                <div class="russia-stat">
+                                    <span>Россия: {{russia_sum_deaths}} ({{russia_per_deaths}}%)</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="c19-statistics-vid">
+                            <div class="vid-header">
+                                <div id="pointer" style="background-color: rgb(202, 235, 55);"></div>
+                                <span>Выздоровевшие</span>
+                            </div>
+                            <div class="vid-body">
+                                <div class="world-stat">
+                                    <span>Мир: {{world_sum_cured}} ({{world_per_cured}}%)</span>
+                                </div>
+                                <div class="russia-stat">
+                                    <span>Россия: {{russia_sum_cured}} ({{russia_per_cured}}%)</span>
+                                </div>
+                            </div>
+                            
+                        </div>   
+                        
+                    </div>
+                </mat-card> 
+            </div>
+            <div class="content">
+                <div class="news-container">
+                    <div class="header-statistics"></div>
+                    <div class="cards-board" >
+                        
+                        <div class="section-to-3">
+                            <mat-card class="news-card" data-title={{items[0].title}}>
+                                <div class="image-card">
+                                    <picture class="card-picture">
+                                        <img src={{items[0].img}}>
+                                    </picture>
+                                </div>
+                                <div class="content-card">
+                                    <div class="tag">{{items[0].tag}}</div>
+                                    <div class="title">
+                                        <span>{{items[0].title}}</span>
+                                    </div>
+                                    <div class="date">
+                                        <span>{{calculateDiff(items[0].date)}} дней назад</span>
+                                    </div>
+                                </div>
+                            </mat-card>
+                            <mat-card class="news-card" data-title={{items[1].title}}>
+                                <div class="image-card">
+                                    <picture class="card-picture">
+                                        <img src={{items[1].img}}>
+                                    </picture>
+                                </div>
+                                <div class="content-card">
+                                    <div class="tag">{{items[1].tag}}</div>
+                                    <div class="title">
+                                        <span>{{items[1].title}}</span>
+                                    </div>
+                                    <div class="date">
+                                        <span>{{calculateDiff(items[1].date)}} дней назад</span>
+                                    </div>
+                                </div>
+                            </mat-card>
+                            <mat-card class="news-card" data-title={{items[2].title}}>
+                                <div class="image-card">
+                                    <picture class="card-picture">
+                                        <img src={{items[2].img}}>
+                                    </picture>
+                                </div>
+                                <div class="content-card">
+                                    <div class="tag">{{items[2].tag}}</div>
+                                    <div class="title">
+                                        <span>{{items[2].title}}</span>
+                                    </div>
+                                    <div class="date">
+                                        <span>{{calculateDiff(items[2].date)}} дней назад</span>
+                                    </div>
+                                </div>
+                                
+                            </mat-card>
+                        </div>
+                        <div class="section-to-1">
+                            <mat-card class="news-card" data-title={{items[3].title}}>
+                                <div class="image-card">
+                                    <picture class="card-picture">
+                                        <img src={{items[3].img}}>
+                                    </picture>
+                                </div>
+                                <div class="content-card">
+                                    <div class="tag">{{items[3].tag}}</div>
+                                    <div class="title">
+                                        <span>{{items[3].title}}</span>
+                                    </div>
+                                    <div class="date">
+                                        <span>{{calculateDiff(items[3].date)}} дней назад</span>
+                                    </div>
+                                </div>
+                            </mat-card>
+                        </div>
+                        <div class="section-to-3">
+                            <mat-card class="news-card" data-title={{items[4].title}}>
+                                <div class="image-card">
+                                    <picture class="card-picture">
+                                        <img src={{items[4].img}}>
+                                    </picture>
+                                </div>
+                                <div class="content-card">
+                                    <div class="tag">{{items[4].tag}}</div>
+                                    <div class="title">
+                                        <span>{{items[4].title}}</span>
+                                    </div>
+                                    <div class="date">
+                                        <span>{{calculateDiff(items[4].date)}} дней назад</span>
+                                    </div>
+                                </div>
+                                
+                            </mat-card>
+                            <mat-card class="news-card" data-title={{items[5].title}}>
+                                <div class="image-card">
+                                    <picture class="card-picture">
+                                        <img src={{items[5].img}}>
+                                    </picture>
+                                </div>
+                                <div class="content-card">
+                                    <div class="tag">{{items[5].tag}}</div>
+                                    <div class="title">
+                                        <span>{{items[5].title}}</span>
+                                    </div>
+                                    <div class="date">
+                                        <span>{{calculateDiff(items[5].date)}} дней назад</span>
+                                    </div>
+                                </div>
+                            </mat-card>
+                            <mat-card class="news-card" data-title={{items[6].title}}>
+                                <div class="image-card">
+                                    <picture class="card-picture">
+                                        <img src={{items[6].img}}>
+                                    </picture>
+                                </div>
+                                <div class="content-card">
+                                    <div class="tag">{{items[6].tag}}</div>
+                                    <div class="title">
+                                        <span>{{items[6].title}}</span>
+                                    </div>
+                                    <div class="date">
+                                        <span>{{calculateDiff(items[6].date)}} дней назад</span>
+                                    </div>
+                                </div>
+                                
+                            </mat-card>
+                        </div>
+                        <div class="section-to-2">
+                            <mat-card class="news-card" data-title={{items[7].title}}>
+                                <div class="image-card">
+                                    <picture class="card-picture">
+                                        <img src={{items[7].img}}>
+                                    </picture>
+                                </div>
+                                <div class="content-card">
+                                    <div class="tag">{{items[7].tag}}</div>
+                                    <div class="title">
+                                        <span>{{items[7].title}}</span>
+                                    </div>
+                                    <div class="date">
+                                        <span>{{calculateDiff(items[7].date)}} дней назад</span>
+                                    </div>
+                                </div>
+                            </mat-card>
+                            <mat-card class="news-card" data-title={{items[8].title}}>
+                                <div class="image-card">
+                                    <picture class="card-picture">
+                                        <img src={{items[8].img}}>
+                                    </picture>  
+                                </div>
+                                <div class="content-card">
+                                    <div class="tag">{{items[8].tag}}</div>
+                                    <div class="title">
+                                        <span>{{items[8].title}}</span>
+                                    </div>
+                                    <div class="date">
+                                        <span>{{calculateDiff(items[8].date)}} дней назад</span>
+                                    </div>
+                            </div>
+                            </mat-card>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

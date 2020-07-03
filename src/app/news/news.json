@@ -1,0 +1,65 @@
+[{
+    "date":"2020-05-28 10:00:00",
+    "tag":"Новости",
+    "img":"assets/img/putyourvoicein.jpg",
+    "title":"Путин напомнил, как республики «тащили» из СССР «подарки» русского народа»",
+    "text":"assets/news/putin.txt"   
+},
+{
+    "date":"2020-05-25 13:00:00",
+    "tag":"Новости",
+    "img": "assets/img/plane.jpg",
+    "title":"Самолет взлетел! Восьмое чудо света «Это невероятное чудо, такое можно встретить только в сказках»",
+    "text":"assets/news/plane.txt"    
+},
+{
+    "date":"2020-05-12 12:00:00",
+    "tag":"Новости",
+    "img":"assets/img/trap.jpg",
+    "title":"Трамп придумал новое название для коронавируса и снова обидел Китай...",
+    "text":"assets/news/trap.txt"    
+},
+{
+    "date":"2020-04-28 10:00:00",
+    "tag":"Архив",
+    "img":"assets/img/ChuckN.png",
+    "title":"Его боялись даже чеченцы...",
+    "text":"assets/news/chuck.txt"    
+},
+{
+    "date":"2020-04-23 10:00:00",
+    "tag":"Новости",
+    "img":"assets/img/rpl.jpg",
+    "title":"В РПЛ подтвердили случаи заболевания коронавирусом в «Оренбурге»",
+    "text":"assets/news/rpl.txt"    
+},
+{
+    "date":"2020-04-22 10:00:00",
+    "tag":"Новости",
+    "img":"assets/img/robbery.jpg",
+    "title":"Полиция предупредила жителей Карелии о новой схеме обмана с выплатами",
+    "text":"assets/news/robbery.txt"    
+},
+{
+    "date":"2020-04-21 10:00:00",
+    "tag":"Новости",
+    "img":"assets/img/karelia.jpg",
+    "title":"24 человека заразились коронавирусом в Карелии за сутки",
+    "text":"assets/news/karelia.txt"    
+},
+{
+    "date":"2020-03-23 10:00:00",
+    "tag":"Новости",
+    "img":"assets/img/gender.jpg",
+    "title":"Гендерная боль: коронавирус опаснее для мужчин",
+    "text":"assets/news/gender.txt"    
+},
+
+{
+    "date":"2020-03-23 09:00:00",
+    "tag":"Новости",
+    "img":"assets/img/oloyork.jpg",
+    "title":"Какие-то там новости про Олонец",
+    "text":"assets/news/olonec.txt"    
+}
+]

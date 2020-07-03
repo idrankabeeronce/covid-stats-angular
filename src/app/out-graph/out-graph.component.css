@@ -1,0 +1,108 @@
+.charts-main-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.header-content {
+    height: 100%;
+    margin: 15px 15px
+}
+.charts-h1 {
+    margin: 35px 10px;
+    font-size: 24px;
+    line-height: 36px;
+}
+.all-highcharts {
+    height: 100%;
+}
+.compare-highcharts {
+    padding-top: 20px;
+    display:flex; 
+    justify-content: space-between  ;
+    height: 500px;
+}
+:host /deep/ .mat-drawer-content {
+    overflow: hidden !important;
+}
+mat-drawer-container {
+    width: 70vw;
+}
+#container { 
+    width: 87%;
+}
+#comparehighcharts {
+    height: 100%;
+}
+.side-menu {
+    padding-top: 5px;
+    padding-right: 5px;
+    width: 20%;
+    height: 400px;
+}
+.side-menu-line-chart {
+    padding-top: 5px;
+    padding-right: 5px;
+    width: 13%;
+    height: 400px;
+    overflow: hidden;
+}
+.round-highchart {
+    height: 500px;
+    width: 50%;
+    
+}
+.round-highcharts {
+    padding-top: 20px;
+    display: flex;
+    width: 100%;
+}
+mat-card {
+    padding: 0px;
+}
+.board-container {
+    width: 100%;
+}
+.first-donut, .second-donut {
+    display: flex;
+    height: 100%;
+}
+.compare-card {
+    display: flex; 
+    height: 500px;
+    width: 100%;
+}
+.line-card {
+    
+    height: 500px;
+    display: flex;
+}
+#container-f{
+    width: 100%;
+}
+#container-s {
+    width: 100%;
+}
+.select-color {
+    display: inline-block;
+    padding: 5%;
+    width: 90%;
+    color: rgba(0,0,0,.42);
+}
+.selector-color {
+    margin-top: 5px;
+    border: solid 1px #e0e0e0;
+    border-radius: 3px;
+    display: grid;
+    justify-items: end;
+}
+.mat-select {
+    font-size: 12px;
+}
+label {
+    font-size: 12px;
+}
+h2 {
+    font: inherit;
+    font-size: 14px;
+    margin: 0;
+}

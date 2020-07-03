@@ -1,0 +1,97 @@
+<div class="charts-main-container">
+    <div class="charts-h1">
+        <h1>Данные, за исключением 28.05.2020 года, не являются действительными и были сгенерированы с использованием математических формул.</h1>
+    </div>
+        <div class="line-highcharts" [style.visibility]="isDestroyed ? 'hidden' : 'visible'" style="width: 100%">
+                <mat-card class="line-card" (click)="change_data()"> 
+                    <mat-card-content id="container">
+                        
+                    </mat-card-content>
+                    <div class="side-menu-line-chart">
+                        <mat-form-field style="width: 100%;">
+                            <mat-label>Тип графика</mat-label>
+                            <mat-select [(ngModel)]="selectedType" (ngModelChange)="updateType()">
+                                <mat-option value='line'>Линейный</mat-option>
+                                <mat-option value='column'>Столбчатый</mat-option>
+                                <mat-option value='area'>Линейный с заполнением</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div class="select-color">
+                            <h2>Цвета серий</h2>
+                            <div class="selector-color">
+                                <label>Зараженные</label>
+                                <mat-select [(ngModel)]="line_colorConf" (ngModelChange)="updatecolorline()" [style.backgroundColor]="line_colorConf">
+                                    <mat-option value='#058DC7' [style.backgroundColor]="'#058DC7'"></mat-option>
+                                    <mat-option value='#DDDF00' [style.backgroundColor]="'#DDDF00'"></mat-option>
+                                    <mat-option value='#FF9655' [style.backgroundColor]="'#FF9655'"></mat-option>
+                                </mat-select>
+                                    
+                            </div>
+                            <div class="selector-color">
+                                <label>Выздоровевшие</label>
+                                    <mat-select [(ngModel)]="line_colorCured" (ngModelChange)="updatecolorline()" [style.backgroundColor]="line_colorCured">
+                                        <mat-option value='#50B432' [style.backgroundColor]="'#50B432'"></mat-option>
+                                        <mat-option value='#24CBE5' [style.backgroundColor]="'#24CBE5'"></mat-option>
+                                        <mat-option value='#FFF263' [style.backgroundColor]="'#FFF263'"></mat-option>
+                                    </mat-select>
+                            </div>
+                            <div class="selector-color">
+                                <label>Умершие</label>
+                                <mat-select [(ngModel)]="line_colorDeaths" (ngModelChange)="updatecolorline()" [style.backgroundColor]="line_colorDeaths">
+                                    <mat-option value='#ED561B' [style.backgroundColor]="'#ED561B'"></mat-option>
+                                    <mat-option value='#64E572' [style.backgroundColor]="'#64E572'"></mat-option>
+                                    <mat-option value='#6AF9C4' [style.backgroundColor]="'#6AF9C4'"></mat-option>
+                                </mat-select>
+                            </div> 
+                        </div>                  
+                    </div> 
+                </mat-card>
+        </div>
+            
+        <div class="compare-highcharts" [style.visibility]="isDestroyed ? 'hidden' : 'visible'">
+                <div class="board-container">
+                    <mat-card class="compare-card">
+                        <mat-card-content id="comparecharts" style="width: 100%;">
+                        </mat-card-content>
+                        <div class="side-menu">
+                            <mat-form-field style="width: 100%;">
+                                <mat-label>Страна/город</mat-label>
+                                <mat-select [(ngModel)]="selectedValue" (ngModelChange)="updateselected()">
+                                    <mat-option>None</mat-option>
+                                    <mat-option *ngFor="let item of this.items_w" [value]="item.country" >{{item.country}}</mat-option>
+                                    <mat-option *ngFor="let item of this.items_r" [value]="item.country" >{{item.country}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <div class="select-color">
+                                <h2>Цвета серий</h2>
+                                <div class="selector-color">
+                                    <label>Зараженные</label>
+                                    <mat-select [(ngModel)]="comp_colorConf" (ngModelChange)="updatecolor()" [style.backgroundColor]="comp_colorConf">
+                                        <mat-option value='#058DC7' [style.backgroundColor]="'#058DC7'"></mat-option>
+                                        <mat-option value='#DDDF00' [style.backgroundColor]="'#DDDF00'"></mat-option>
+                                        <mat-option value='#FF9655' [style.backgroundColor]="'#FF9655'"></mat-option>
+                                    </mat-select>
+                                        
+                                </div>
+                                <div class="selector-color">
+                                    <label>Выздоровевшие</label>
+                                        <mat-select [(ngModel)]="comp_colorCured" (ngModelChange)="updatecolor()" [style.backgroundColor]="comp_colorCured">
+                                            <mat-option value='#50B432' [style.backgroundColor]="'#50B432'"></mat-option>
+                                            <mat-option value='#24CBE5' [style.backgroundColor]="'#24CBE5'"></mat-option>
+                                            <mat-option value='#FFF263' [style.backgroundColor]="'#FFF263'"></mat-option>
+                                        </mat-select>
+                                </div>
+                                <div class="selector-color">
+                                    <label>Умершие</label>
+                                    <mat-select [(ngModel)]="comp_colorDeaths" (ngModelChange)="updatecolor()" [style.backgroundColor]="comp_colorDeaths">
+                                        <mat-option value='#ED561B' [style.backgroundColor]="'#ED561B'"></mat-option>
+                                        <mat-option value='#64E572' [style.backgroundColor]="'#64E572'"></mat-option>
+                                        <mat-option value='#6AF9C4' [style.backgroundColor]="'#6AF9C4'"></mat-option>
+                                    </mat-select>
+                                </div> 
+                            </div>                                           
+                        </div>    
+                    </mat-card>
+                </div>   
+        </div>
+</div>
